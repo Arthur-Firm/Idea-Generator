@@ -1,10 +1,19 @@
-import { Text, View, StyleSheet } from 'react-native';
+import { TouchableOpacity, View, StyleSheet, Text, Image } from 'react-native';
 import { Header } from '~/components/Header';
+import { color2 } from '~/constants/colors';
+import  ModalS  from '~/components/ModalS'
+import { useState } from 'react';
 
 export default function Home() {
+  const[visible, setVisible] = useState(false)
   return (
       <View style={styles.fundo}>
         <Header/>
+        <TouchableOpacity style={styles.select} onPress={() => setVisible(true)}>
+          <Text>Área de atuação</Text>
+          <Image source={require('constants/down.png')} style={{width: 10, height: 10, tintColor: color2}}/>
+        </TouchableOpacity>
+        <ModalS isVisible={visible} onClose={() => setVisible(false)}/>
       </View>
   );
 }
@@ -16,6 +25,19 @@ const styles = StyleSheet.create(
       backgroundColor: 'white',
       height: "100%",
       width: "100%",
+      gap: '10%',
+    },
+    select:{
+      width: '70%',
+      height: '5%',
+      alignSelf: 'center',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      borderColor: color2,
+      borderWidth: 2,
+      borderRadius: 20,
+      padding: 10,
+      flexDirection: 'row'
     }
   }
 )
