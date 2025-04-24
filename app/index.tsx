@@ -6,14 +6,15 @@ import { useState } from 'react';
 
 export default function Home() {
   const[visible, setVisible] = useState(false)
+  const[area, setArea] = useState('Área de atuação')
   return (
       <View style={styles.fundo}>
         <Header/>
         <TouchableOpacity style={styles.select} onPress={() => setVisible(true)}>
-          <Text>Área de atuação</Text>
+          <Text>{area}</Text>
           <Image source={require('constants/down.png')} style={{width: 10, height: 10, tintColor: color2}}/>
         </TouchableOpacity>
-        <ModalS isVisible={visible} onClose={() => setVisible(false)}/>
+        <ModalS isVisible={visible} onClose={() => setVisible(false)} onClic={(title) => {setArea(title); setVisible(false)}}/>
       </View>
   );
 }
@@ -25,7 +26,7 @@ const styles = StyleSheet.create(
       backgroundColor: 'white',
       height: "100%",
       width: "100%",
-      gap: '10%',
+      gap: '10%'
     },
     select:{
       width: '70%',
