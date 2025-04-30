@@ -12,6 +12,8 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: color1,
     alignItems: 'center',
-    borderRadius: 30,
+    borderBottomLeftRadius: 30,
+    borderBottomRightRadius: 30,
+    marginBottom: 30,
   },
 });
