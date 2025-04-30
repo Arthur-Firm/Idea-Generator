@@ -7,7 +7,17 @@ export default function Result(){
     return(
         <View style={styles.fundo}>
             <Header/>
-            <TouchableOpacity onPress={() => router.back()} style={styles.voltar}/>
+            <Text>Nome do projeto: </Text>
+            <View style={styles.titulobox}>
+                <Text>Titulo do projeto</Text>
+            </View>
+            <Text>Descrição:</Text>
+            <View style={styles.descbox}>
+                <Text>Titulo do projetoTitulo do projeto</Text>
+            </View>
+            <TouchableOpacity onPress={() => router.back()} style={styles.voltar}>
+            <Text>Voltar</Text>
+            </TouchableOpacity>
         </View>
     )
 }
@@ -18,11 +28,28 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         height: "100%",
         width: "100%",
+        alignItems: "center",
+        gap: 10,
       },
       voltar:{
         borderWidth: 2,
         borderColor: color1,
         width: '30%',
-        height: '10%',
+        height: '5%',
+        borderRadius: 10,
+        alignItems: 'center',
+        justifyContent:'center'
+      },
+      titulobox:{
+        backgroundColor: 'lightgray',
+        width: '90%',
+        borderRadius: 20,
+        padding: 10,
+      },
+      descbox:{
+        backgroundColor: 'lightgray',
+        width: '90%',
+        borderRadius: 20,
+        padding: 10,
       }
 })
